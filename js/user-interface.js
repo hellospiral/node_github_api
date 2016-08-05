@@ -5,6 +5,7 @@ $(document).ready(function() {
   $('#userInfo').click(function() {
     var name = $('#name').val();
     $('#location').val("");
+    currentUserObject.getUserInfo(name);
     currentUserObject.getRepos(name);
   });
 });
