@@ -6,7 +6,7 @@
 
 ## Description
 
-This app allows a user to look up a GitHub user by their username. It then makes an API request and dynamically populates the page with their profile information and a list of their public repos. It includes logic to make the app functional whether or not the user has an api key.
+This app allows a user to look up a GitHub user by their username. It then makes an API request and dynamically populates the page with their profile information and information about their public repos. It includes logic to make the app functional whether or not the user has an api key.
 
 ## Setup/Installation Requirements
 * node/npm
@@ -23,6 +23,7 @@ This app allows a user to look up a GitHub user by their username. It then makes
 * JavaScript
 * Node.js
 * Bower
+* Gulp
 * SASS
 * Moment.js
 * HTML
