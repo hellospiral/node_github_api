@@ -3,8 +3,9 @@ $green : #75B975;
 
 .box {
   background: $gray;
-  border: 3px solid black;
+  border: 2px solid black;
   padding: 40px 80px;
+  text-align: center;
   .button {
     font-weight: bold;
     text-align: center;

@@ -1,10 +1,19 @@
-var apiKey = require('./../.env').apiKey;
+if (require('./../.env').apiKey) {
+  var apiKey = require('./../.env').apiKey;
+}
 
 function User() {
 }
 
 User.prototype.getUserInfo = function(username) {
-  $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response){
+  var url;
+  if (apiKey) {
+    url = 'https://api.github.com/users/' + username + '?access_token=' + apiKey;
+  } else {
+    url = 'https://api.github.com/users/' + username;
+  }
+
+  $.get(url).then(function(response){
     var memberSince = moment(response.created_at);
     var profileHtml = "";
     profileHtml += "<h2>" + response.name + "</h2>";
@@ -20,7 +29,14 @@ User.prototype.getUserInfo = function(username) {
 }
 
 User.prototype.getRepos = function(username) {
-  $.get('https://api.github.com/users/' + username + '/repos?page=1&per_page=100&access_token=' + apiKey).then(function(response){
+  var url;
+  if (apiKey) {
+    url = 'https://api.github.com/users/' + username + '/repos?page=1&per_page=100&access_token=' + apiKey;
+  } else {
+    url = 'https://api.github.com/users/' + username + '/repos?page=1&per_page=100';
+  }
+
+  $.get(url).then(function(response){
     // console.log(response);
     var responseHtml = "<h2>Public Repos:</h2><br>";
     var repos = response;
