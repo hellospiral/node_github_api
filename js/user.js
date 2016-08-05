@@ -27,10 +27,12 @@ User.prototype.getRepos = function(username) {
     for (var i = 0; i < repos.length; i++) {
       var created = moment(repos[i].pushed_at);
       responseHtml += '<h3><a href="' + repos[i].html_url + '">' + repos[i].name + '</a></h3>';
-      responseHtml += "<h5>" + repos[i].language + "</h5>";
+      if (repos[i].language !== null) {
+        responseHtml += "<h5>" + repos[i].language + "</h5>";
+      }
       responseHtml += "<h5>Created on: " + (created.month() + 1) + "/" + created.date() + "/" + created.year() + "</h5>";
       if (repos[i].description === null) {
-        responseHtml += "<hr><br>";
+        responseHtml += "<br><hr>";
       } else {
         responseHtml += "<h5>" + repos[i].description + "</h5><br><hr>";
       }
